@@ -7,7 +7,7 @@ const Home = lazy(() => import("./Home"));
 const MyCamera = lazy(() => import("./MyCamera"));
 
 const App: React.FC = () => {
-  const [photo, setPhoto] = useState(() => undefined);
+  const [imageUrl, setImageUrl] = useState(() => undefined);
 
   return (
     <Router>
@@ -30,10 +30,10 @@ const App: React.FC = () => {
             <About />
           </Route>
           <Route path="/camera">
-            <MyCamera setPhoto={setPhoto} />
+            <MyCamera setPhoto={setImageUrl} />
           </Route>
           <Route path="/snappedPic">
-            <SnappedPic photo={photo} />
+            <SnappedPic imageUrl={imageUrl} />
           </Route>
           <Route path="/">
             <Home />
