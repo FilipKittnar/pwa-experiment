@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SnappedPic from "./SnappedPic";
+import Location from "./Location";
 
-const About = lazy(() => import("./About"));
 const Home = lazy(() => import("./Home"));
 const MyCamera = lazy(() => import("./MyCamera"));
 
@@ -18,22 +18,22 @@ const App: React.FC = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/camera">Camera</Link>
             </li>
             <li>
-              <Link to="/camera">Camera</Link>
+              <Link to="/location">Location</Link>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
           <Route path="/camera">
             <MyCamera setPhoto={setImageUrl} />
           </Route>
           <Route path="/snappedPic">
             <SnappedPic imageUrl={imageUrl} />
+          </Route>
+          <Route path="/location">
+            <Location />
           </Route>
           <Route path="/">
             <Home />
